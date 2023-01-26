@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1> {% block title %}Update User Profile{% endblock %} </h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input class="form-control" style="color:white" name="username" id="username" value = "{{user.username}}"><br>
+
+    <label for="email">Email</label>
+    <input class="form-control" style="color:white" name="email" id="email" value="{{user.email}}" required><br>
+
+    <label for="billingAddress">Billing Address</label>
+    <input class="form-control" style="color:white" name="billingAddress" id="billingAddress" value="{{user.billing_address}}" required><br>
+
+    <label for="postalCode">Postal Code</label>
+    <input class="form-control" style="color:white" name="postalCode" id="postalCode" value="{{user.postal_code}}" required><br><br>
+
+    <input class="btn btn-primary" type="submit" value="Submit"><br>
+  </div>
+</form>
+<a href='/'>Back</a>
+{% endblock %}

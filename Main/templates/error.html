@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="color:white">{% block title %}ERROR{% endblock %}</h1>
+<h4 id='message' style="color:white">{{message}}</h4>
+
+<a href='/'>Back</a>
+{% endblock %}

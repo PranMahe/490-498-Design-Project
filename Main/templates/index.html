@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1> {% block title %} Ovarian Cancer Detection {% endblock %} </h1>
+{% endblock %}
+
+{% block content %}
+<h2 id="welcome-header"> Welcome {{user.username}} !</h2>
+
+<h2 id="questionairre">Recieve a Classification ----> <a href="/classification">Click Here!</a></h2>
+
+<h2>Here is Your Current Classification</h2>
+<div id="classification">
+
+</div>
+
+
+
+<a href='/updateUser'>Want to Update your Profile Click Here!</a><br><br>
+
+<a href='/logout'>logout</a>
+{% endblock %}

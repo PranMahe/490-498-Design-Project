@@ -1,0 +1,39 @@
+version: "2"
+services:
+  Main-web:
+    image: your_docker_hub_name/your_docker_hub_repo_name:version_info
+    depends_on:
+      - Main-db
+    links:
+      - Main-db
+    ports:
+      - "8081:8081"
+    environment:
+      - db_string=mysql+pymysql://root:root@Main-db/cap490
+    command:  ["./wait-for-it.sh", "qbay-db:3306", "--strict" , "--timeout=300", "--", "python", "-m", "qbay"]
+    networks:
+      - Main-site
+
+  Main: root
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./db_init.sql:/data/application/init.sql
+    networks:
+      - Main-site
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - Main-db
+    environment:
+      PMA_HOST: Main-db
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8082:80
+    networks:
+      - Main-site
+
+networks:
+  Main-site:

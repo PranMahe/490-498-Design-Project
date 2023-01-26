@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="color:white">{% block title %}Register{% endblock %}</h1>
+<h4 id='message' style="color:white">{{message}}</h4>
+<form method="post">
+  <div class="form-group">
+    <label for="email" style="color:white">Email</label><br>
+    <input class="form-control" style="color:white" name="email" id="email" required><br>
+    <label for="username" style="color:white">Username</label><br>
+    <input class="form-control" style="color:white" name="username" id="username" required><br>
+    <label for="password" style="color:white">Password</label><br>
+    <input class="form-control" style="color:white" type="password" name="password" id="password" required><br>
+    <label for="password" style="color:white">Confirm Password</label><br>
+    <input class="form-control" style="color:white" type="password" name="password2" id="password2" required><br><br>
+    <input class="btn btn-primary"type="submit" value="Register"><br>
+
+  </div>
+</form>
+Already a Member?<br>
+<a href='/login'>Login Here!</a>
+
+{% endblock %}

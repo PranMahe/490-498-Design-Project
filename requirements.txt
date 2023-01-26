@@ -1,0 +1,8 @@
+Flask~=2.2.2
+Flask-SQLAlchemy
+pytest~=7.2.0
+flake8
+seleniumbase~=4.9.5
+SQLAlchemy~=1.4.44
+Werkzeug~=2.2.2
+validate_email
